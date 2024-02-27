@@ -1,0 +1,83 @@
+#content {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c5e87;
+    flex-direction: column;
+    gap: 4vw;
+}
+
+#content span {
+    color: #ffffff;
+    padding: 0 3vw 0 0;
+    pointer-events: none;
+    transition-duration: 1s all;
+    font: 2vw 'Outfit';
+}
+
+#content span:nth-child(1) {
+    font: bold 3vw 'Outfit';
+}
+
+td, tr{
+    border: 1px solid #ffffff;
+    font-family: Outfit;
+    text-align: center;
+    color: #ffffff;
+    padding: 0.5vw;
+    font-size: 1.6vw;
+    text-transform: uppercase;
+}
+
+.kurzus {
+    border: 1px solid #c0392b;
+    cursor: pointer;
+}
+  
+.szeminarium {
+    border: 1px solid #2ecc71;
+    cursor: pointer;
+}
+
+.labor {
+    border: 1px solid #f1c40f;
+    cursor: pointer;
+}
+
+.meh {
+    text-decoration: line-through;
+}
+
+.aktiv {
+    color: #ffffff;
+    background-color: #ffffff;
+    animation-name: glow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.aktiv.kurzus {
+    background-color: #c0392b;
+}
+
+.aktiv.szeminarium {
+    background-color: #2ecc71;
+}
+
+.aktiv.labor {
+    background-color: #f1c40f;
+}
+
+.aktivhet {
+    box-shadow: 0 0 10px 5px #fff;
+    animation-name: glow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes glow {
+    0% {box-shadow: 0 0 10px 5px #fff;}
+    50% {box-shadow: 0 0 10px 0 #fff;}
+    100% {box-shadow: 0 0 10px 5px #fff;}
+}

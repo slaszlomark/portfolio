@@ -1,0 +1,183 @@
+/* Quicksand, Jost */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Outfit&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.hidden, .hidden_ {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-30px);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+#header {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header > span {
+    font-family: 'Jost', sans-serif;
+    font-size: 8vw;
+    color: #1c5e87;
+    pointer-events: none;
+    transition-delay: .5s;
+}
+
+#stickyHeader {
+    display: flex;
+    width: 100vw;
+    font-family: 'Jost', sans-serif;
+    font-size: 3.7vh;
+    position: fixed;
+    top: 0;
+    padding: 4vh 0 0 4vh;
+    z-index: 1;
+}
+
+#stickyHeader svg {
+    cursor: pointer;
+}
+
+#stickyHeader span {
+    padding: 0 0 0 2vh;
+    pointer-events: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: #222f3e;
+    height: 100vh;
+    width: 30vw;
+    z-index: 2;
+    font-family: 'Outfit', sans-serif;
+    transition: all 1s ease;
+    transform: translateX(-100%);
+}
+
+.showMenu {
+    transform: translateX(0);
+}
+
+.menu span {
+    font-size: 3vw;
+    text-transform: uppercase;
+    padding: 5vh 0 5vh 5vh;
+    color: #ffffff;
+}
+
+.menu a, .apps a {
+    font-size: 2vw;
+    opacity: 50%;
+    padding: 0 0 1vh 5vh;
+    color: #bdc3c7;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+#menuHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.apps {
+    display: none;
+}
+
+.showApps {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 3vh;
+}
+
+#menuHeading > svg {
+    padding-right: 5vh;
+    cursor: pointer;
+}
+
+.waves {
+    aspect-ratio: 2000/540;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url('./wave1.svg');
+}
+
+.layer2 {
+    background-image: url('./wave2.svg');
+}
+
+#clock {
+    color: #ffffff;
+    font: bold 20vw 'Jost';
+    padding: 0 3vw 0 0;
+    pointer-events: none;
+    transition-duration: 1s all;
+}
+
+#footer {
+    padding: 5vh 0 5vh 0;
+    background-color: #020d18;
+    color: #bdc3c7;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer > a {
+    text-decoration: none;
+    color: #bdc3c7;
+    opacity: 50%;
+    margin: 0.75vh;
+}
+
+#footer > a:hover {
+    opacity: 100%;
+}
+
+#footer > #dev {
+    margin: 10vh 0 0 0;
+    font-weight: bold;
+}
+
+@media (width <= 768px) {
+    .menu {
+        width: 100vw;
+    }
+
+    .menu a {
+        font-size: 5vw;
+    }
+
+    .menu span {
+        font-size: 8vw;
+    }
+}

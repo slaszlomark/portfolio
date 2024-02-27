@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./master.css">
+    <link rel="stylesheet" href="./orarend.css">
+    <link rel="icon" href="./kepek/LOGO.png" type="image/icon type">
+
+    <title>Órarend</title>
+
+    <script defer src="./anim.js"></script>
+    <script>
+        function removeWebhost() {
+            document.querySelector('img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]').style.display = 'none';
+        }
+    </script>
+</head>
+<body onload="year(); ora(); hetIndikator(); removeWebhost();">
+    <div id="stickyHeader">
+        <svg onclick="showMenu()" width="5vh" height="5vh" viewBox="0 0 24 24">
+            <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="hidden_" id="stickySpan">Órarend</span>
+    </div>
+
+    <div class="menu">
+        <div id="menuHeading">
+            <span>Menü</span>
+            <svg onclick="hideMenu()" fill="#ffffff" width="5vh" height="5vh" viewBox="0 0 1024 1024">
+                <path d="M222.927 580.115l301.354 328.512c24.354 28.708 20.825 71.724-7.883 96.078s-71.724 20.825-96.078-7.883L19.576 559.963a67.846 67.846 0 01-13.784-20.022 68.03 68.03 0 01-5.977-29.488l.001-.063a68.343 68.343 0 017.265-29.134 68.28 68.28 0 011.384-2.6 67.59 67.59 0 0110.102-13.687L429.966 21.113c25.592-27.611 68.721-29.247 96.331-3.656s29.247 68.721 3.656 96.331L224.088 443.784h730.46c37.647 0 68.166 30.519 68.166 68.166s-30.519 68.166-68.166 68.166H222.927z"/>
+            </svg>
+        </div>
+
+        <a href="./index.html">Főoldal</a>
+        <a href="./orarend.html">Órarend</a>
+        <a id="appsButton" onclick="showApps()">Applikációk</a>
+        <div class="apps">
+            <a>Számkitaláló játék</a>
+            <a>Szó- és karakterszámláló</a>
+            <a>Kő-papír-olló</a>
+        </div>
+        <a href="./duomonkraft.html">Duomonkraft</a>
+        <a href="./kapcsolat.html">Kapcsolat</a>
+    </div>
+
+    <div id="header">
+        <span class="hidden" id="headerSpan">Órarend</span>
+    </div>
+
+    <div class="waves layer1"></div>
+
+    <div id="content">
+            <span>ÓRAREND – 524/1 CSOPORT – 4. FÉLÉV</span>
+
+            <span id="currently" style="display: none;"></span>
+            
+            <table id="paratlan">
+                <tr>
+                    <td colspan="6">Páratlan hét</td>
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td>HÉTFŐ</td>
+                  <td>KEDD</td>
+                  <td>SZERDA</td>
+                  <td>CSÜTÖRTÖK</td>
+                  <td>PÉNTEK</td>
+                </tr>
+      
+                <tr>
+                  <td>8–10</td>
+                  <td id="1H1" class="tanora"></td>
+                  <td id="1K1" class="tanora kurzus" onclick="alert('Terem: 5/I\nCím: Sala Tiberiu Popoviciu, Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Grafika</td>
+                  <td id="1SZ1" class="tanora labor" onclick="alert('Terem: L306\nCím: Campus, etaj 3 (str. T. Mihali)')">Adatbázisok 2</td>
+                  <td id="1CS1" class="tanora kurzus" onclick="alert('Terem: C310\nCím: Campus, etaj 3 (str. T. Mihali)')">MI</td>
+                  <td id="1P1" class="tanora"></td>
+                </tr>
+      
+                <tr>
+                  <td>10–12</td>
+                  <td id="1H2" class="tanora"></td>
+                  <td id="1K2" class="tanora"></td>
+                  <td id="1SZ2" class="tanora"></td>
+                  <td id="1CS2" class="tanora kurzus" onclick="alert('Terem: C310\nCím: Campus, etaj 3 (str. T. Mihali)')">Dinamikus</td>
+                  <td id="1P2" class="tanora kurzus" onclick="alert('Terem: C310\nCím: Campus, etaj 3 (str. T. Mihali)')">Webprogramozás</td>
+                </tr>
+      
+                <tr>
+                  <td>12–14</td>
+                  <td id="1H3" class="tanora"></td>
+                  <td id="1K3" class="tanora"></td>
+                  <td id="1SZ3" class="tanora"></td>
+                  <td id="1CS3" class="tanora"></td>
+                  <td id="1P3" class="tanora"></td>
+                </tr>
+      
+                <tr>
+                  <td>14–16</td>
+                  <td id="1H4" class="tanora kurzus" onclick="alert('Terem: 6/II\nCím: Sala Gheorghe Calugareanu, Cladirea Centrala, etaj 2 (Str. M. Kogalniceanu)')">Hálózatok</td>
+                  <td id="1K4" class="tanora"></td>
+                  <td id="1SZ4" class="tanora"></td>
+                  <td id="1CS4" class="tanora szeminarium" onclick="alert('Terem: e\nCím: Cladirea Mathematicum, etaj 1 (str. Ploiesti)')">HÁLÓZATOK</td>
+                  <td id="1P4" class="tanora"></td>
+                </tr>
+      
+                <tr>
+                  <td>16–18</td>
+                  <td id="1H5" class="tanora kurzus" onclick="alert('Terem: 5/I\nCím: Sala Tiberiu Popoviciu, Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Adatbázisok 2</td>
+                  <td id="1K5" class="tanora"></td>
+                  <td id="1SZ5" class="tanora"></td>
+                  <td id="1CS5" class="tanora"></td>
+                  <td id="1P5" class="tanora labor" onclick="alert('Terem: L307\nCím: Campus, etaj 3 (str. T. Mihali)')">Dinamikus</td>
+                </tr>
+      
+                <tr>
+                  <td>18–20</td>
+                  <td id="1H6" class="tanora"></td>
+                  <td id="1K6" class="tanora"></td>
+                  <td id="1SZ6" class="tanora"></td>
+                  <td id="1CS6" class="tanora"></td>
+                  <td id="1P6" class="tanora"></td>
+                </tr>
+            </table>
+
+            <table id="paros">
+                <tr>
+                    <td colspan="6">Páros hét</td>
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td>HÉTFŐ</td>
+                  <td>KEDD</td>
+                  <td>SZERDA</td>
+                  <td>CSÜTÖRTÖK</td>
+                  <td>PÉNTEK</td>
+                </tr>
+      
+                <tr>
+                  <td>8–10</td>
+                  <td id="2H1" class="tanora"></td>
+                  <td id="2K1" class="tanora kurzus" onclick="alert('Terem: 5/I\nCím: Sala Tiberiu Popoviciu, Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Grafika</td>
+                  <td id="2SZ1" class="tanora"></td>
+                  <td id="2CS1" class="tanora kurzus" onclick="alert('Terem: C310\nCím: Campus, etaj 3 (str. T. Mihali)')">MI</td>
+                  <td id="2P1" class="tanora"></td>
+                </tr>
+      
+                <tr>
+                  <td>10–12</td>
+                  <td id="2H2" class="tanora"></td>
+                  <td id="2K2" class="tanora szeminarium" onclick="alert('Terem: 9/I\nCím: Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Grafika</td>
+                  <td id="2SZ2" class="tanora szeminarium" onclick="alert('Terem: C512\nCím: Campus, etaj 5 (str. T. Mihali)')">MI</td>
+                  <td id="2CS2" class="tanora kurzus" onclick="alert('Terem: C310\nCím: Campus, etaj 3 (str. T. Mihali)')">Dinamikus</td>
+                  <td id="2P2" class="tanora kurzus" onclick="alert('Terem: C310\nCím: Campus, etaj 3 (str. T. Mihali)')">Webprogramozás</td>
+                </tr>
+      
+                <tr>
+                  <td>12–14</td>
+                  <td id="2H3" class="tanora"></td>
+                  <td id="2K3" class="tanora szeminarium" onclick="alert('Terem: 9/I\nCím: Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Adatbázisok 2</td>
+                  <td id="2SZ3" class="tanora labor" onclick="alert('Terem: L307\nCím: Campus, etaj 3 (str. T. Mihali)')">Grafika</td>
+                  <td id="2CS3" class="tanora"></td>
+                  <td id="2P3" class="tanora"></td>
+                </tr>
+      
+                <tr>
+                  <td>14–16</td>
+                  <td id="2H4" class="tanora kurzus" onclick="alert('Terem: 6/II\nCím: Sala Gheorghe Calugareanu, Cladirea Centrala, etaj 2 (Str. M. Kogalniceanu)')">Hálózatok</td>
+                  <td id="2K4" class="tanora"></td>
+                  <td id="2SZ4" class="tanora"></td>
+                  <td id="2CS4" class="tanora"></td>
+                  <td id="2P4" class="tanora"></td>
+                </tr>
+      
+                <tr>
+                  <td>16–18</td>
+                  <td id="2H5" class="tanora kurzus" onclick="alert('Terem: 5/I\nCím: Sala Tiberiu Popoviciu, Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Adatbázisok 2</td>
+                  <td id="2K5" class="tanora labor" onclick="alert('Terem: L336\nCím: Campus, etaj 3 (str. T. Mihali)')">Webprogramozás</td>
+                  <td id="2SZ5" class="tanora szeminarium" onclick="alert('Terem: 2/I\nCím: Sala Nicolae Iorga, Cladirea Centrala, etaj 1 (Str. M. Kogalniceanu)')">Dinamikus</td>
+                  <td id="2CS5" class="tanora szeminarium" onclick="alert('Terem: C510\nCím: Campus, etaj 5 (str. T. Mihali)')">Webprogramozás</td>
+                  <td id="2P5" class="tanora labor" onclick="alert('Terem: L320\nCím: Campus, etaj 3 (str. T. Mihali)')">Hálózatok</td>
+                </tr>
+      
+                <tr>
+                  <td>18–20</td>
+                  <td id="2H6" class="tanora"></td>
+                  <td id="2K6" class="tanora labor" onclick="alert('Terem: L320\nCím: Campus, etaj 3 (str. T. Mihali)')">MI</td>
+                  <td id="2SZ6" class="tanora"></td>
+                  <td id="2CS6" class="tanora"></td>
+                  <td id="2P6" class="tanora"></td>
+                </tr>
+            </table>
+            
+            <span>Terem: katt a tárgyra</span>
+    </div>
+
+    <div class="waves layer2"></div>
+
+    <div id="footer">
+        <a href="https://www.facebook.com/slaszlomark/">Facebook</a>
+        <a href="https://www.instagram.com/slaszlomark/">Instagram</a>
+        <a href="https://discord.gg/meYnmvpzBh">Discord</a>
+        <a href="https://www.youtube.com/channel/UCKPVxs1dhXXSxphYZoDg6RA">YouTube</a>
+        <a href="./kapcsolat.html">Kapcsolat</a>
+        <span id="dev">SLM – 2019–<span id="year">2XXX</span></span>
+    </div>
+    
+    <script src="./timetable.js"></script>
+    <script src="./year.js"></script>
+</body>
+</html>
