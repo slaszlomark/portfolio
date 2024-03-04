@@ -127,6 +127,7 @@ function hetIndikator(){
     var days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
          
     var weekNumber = Math.ceil(days / 7);
+    weekNumber++;
 
     if(weekNumber % 2 == 0) {
         document.getElementById("paros").classList.add("aktivhet");
