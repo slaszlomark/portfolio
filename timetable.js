@@ -10,6 +10,7 @@ function melyikOra() {
     var startDate = new Date(ido.getFullYear(), 0, 1);
     var napok = Math.floor((ido - startDate) / (24 * 60 * 60 * 1000));
     var het = Math.ceil(napok / 7);
+    het++;
 
     if(het % 2 == 1) {
         switch(nap){
@@ -127,13 +128,12 @@ function hetIndikator(){
     var days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
          
     var weekNumber = Math.ceil(days / 7);
-    //weekNumber++;
+    weekNumber++;
 
     if(weekNumber % 2 == 0) {
         document.getElementById("paros").classList.add("aktivhet");
         console.log("Páros hét van");
-    }
-    else {
+    } else {
         document.getElementById("paratlan").classList.add("aktivhet");
         console.log("Páratlan hét van");
     }
